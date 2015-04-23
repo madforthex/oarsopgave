@@ -18,7 +18,7 @@ password = query.execute("SELECT * FROM `schema` WHERE `password`='" + password 
 
 if not form:
     header("Login Response")
-elif form.has_key("login") and form["login"].value != "" and form.has_key("username") and form["username"].value == username && form.has_key("login") and form["login"].value != "" and form.has_key("password") and form["password"].value == password:
+elif form.has_key("login") and form["login"].value != "" and form.has_key("username") and form["username"].value == username and form.has_key("password") and form["password"].value == password:
     header("Connected ...")
     print "<center><hr><H3>Welcome back," , form["login"].value, ".</H3><hr></center>"
     print r"""<form><input type="hidden" name="session" value="%s"></form>""" % (form["login"].value)
