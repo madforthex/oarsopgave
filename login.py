@@ -12,20 +12,29 @@ def header(title):
 def footer():
     print "</BODY></HTML>"
 
-form = cgi.FieldStorage()
-username = query.execute("SELECT * FROM `schema` WHERE `username`='" + username + "'")
-password = query.execute("SELECT * FROM `schema` WHERE `password`='" + password + "'")
+<input type = "radio" name = "dbact" value = "drop"> DROP<br>
+Database name: <input type="text" name="dbname" value="">
+<br><br>
 
-if not form:
-    header("Login Response")
-elif form.has_key("login") and form["login"].value != "" and form.has_key("username") and form["username"].value == username and form.has_key("password") and form["password"].value == password:
-    header("Connected ...")
-    print "<center><hr><H3>Welcome back," , form["login"].value, ".</H3><hr></center>"
-    print r"""<form><input type="hidden" name="session" value="%s"></form>""" % (form["login"].value)
-    print "<H3><a href=http://ast-it.dk>Click here to start browsing</a></H3>"
 
-else:
-    header("No success!")
-    print "<H3>Please go back and enter a valid login.</H3>"
+        <div>TABLES</div>
+<input type ="radio" name="tbact" value="create"> CREATE<br>
+<input type="radio" name="tbact" value="drop"> DROP<br>
+Database name: <input type ="text" name="tbname" value="">
+Table name: <input type="text" name="tbname" value="">
+<br><br>
+
+    <div>QUERIES</div>
+<input type="radio" name="qact" value="select"> SELECT<br>
+<input type="radio" name="quact" value="insert"> INSERT<br>
+Database name: <input type ="text" name="qdbname" value="">
+Table name: <input type="text" name="qtbnamee" value="">
+Columns (comma-seperated) : <input type="text" name="values"
+Value=""><br>
+
+<input type="submit" value="submit">
+        </form>
+    </body>
+</html>
 
 footer()
